@@ -441,9 +441,10 @@ Ai cũng bảo cô có nụ cười khiến người ta quên cả bài kiểm t
             <div class="modal-bank" id="myModal">
                 <div class="modal-content">
                         <h2>Gửi Mừng Cưới</h2>
-                        <p id="name_bank">-</p>
-                        <p id="stk_bank"></p>
-                        <img id="img_bank"/>
+                        <p id="name_bank" style="margin: 0px;">-</p>
+                        <p id="stk_bank" style="margin: 0px;"></p>
+                        <img id="img_bank_1" src="statics/DAU_QUOC_BAO.png"/>
+                        <img id="img_bank_2" src="statics/DAU_THI_NGOC.png"/>
                         <img style="height: 38px;" id="downloadBtn" src="statics/download.svg"/>
                     <button class="close-btn" id="closeModal">ĐÓNG</button>
             </div>
@@ -545,40 +546,48 @@ Ai cũng bảo cô có nụ cười khiến người ta quên cả bài kiểm t
     function renModal(){
     const openBtn = document.getElementById('atcb-btn-1');
     const openBtn2 = document.getElementById('atcb-btn-2');
-    const name_bank= document.getElementById('name_bank');
-    const stk_bank= document.getElementById('stk_bank');
-    const img_bank= document.getElementById('img_bank');
-
-
-
-
+    const name_bank = document.getElementById('name_bank');
+    const stk_bank = document.getElementById('stk_bank');
+    const img_bank_1 = document.getElementById('img_bank_1');
+    const img_bank_2 = document.getElementById('img_bank_2');
 
     const closeBtn = document.getElementById('closeModal');
     const modal = document.getElementById('myModal');
+    const link = document.createElement("a");
+
+    const DAU_NGOC_IMG = 'statics/DAU_THI_NGOC.png'
+    const DAU_BAO_IMG = 'statics/DAU_QUOC_BAO.png'
+
 
 
 
     document.getElementById("downloadBtn").addEventListener("click", function() {
-      const link = document.createElement("a");
-      link.href = img_bank.src;
-      link.download = img_bank.src;
-      document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     });
 
+    function createLink(url){
+      link.href = url;
+      link.download = url;
+      document.body.appendChild(link);
+    }
+
     openBtn.addEventListener('click', (e) => {
-      modal.style.display = 'flex';
       name_bank.innerText = 'DAU THI NGOC'
       stk_bank.innerText = '3522205542623 - AGRIBANK'
-      img_bank.src = 'statics/DAU_THI_NGOC.png'
+      modal.style.display = 'flex';
+      img_bank_1.style.display = 'none';
+      img_bank_2.style.display = 'block';
+      createLink(DAU_NGOC_IMG)
     });
 
     openBtn2.addEventListener('click', (e) => {
-      modal.style.display = 'flex';
       name_bank.innerText = 'DAU QUOC BAO'
       stk_bank.innerText = '1020281579 - Vietcombank'
-      img_bank.src = 'statics/DAU_QUOC_BAO.png'
+      modal.style.display = 'flex';
+      img_bank_2.style.display = 'none';
+      img_bank_1.style.display = 'block';
+      createLink(DAU_BAO_IMG)
     });
 
     closeBtn.addEventListener('click', () => {
