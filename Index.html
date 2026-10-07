@@ -6,11 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <div onclick="window.location.href='tammi://openinapp?feature=miniapp&miniappid=179082812796923746095129323113&extraData=/truyen-audio/truyen-co-tich-chang-chom.html?id=1000560'">
+    <div onclick="onClick()">
         test
     </div>
     <script>
-        window.location.href = 'tammi://openinapp?feature=miniapp&miniappid=179082812796923746095129323113&extraData=/truyen-audio/truyen-co-tich-chang-chom.html?id=1000560'
+        function onClick(){
+            window.location.href = 'tammi://openinapp?feature=miniapp&miniappid=179082812796923746095129323113&extraData=/truyen-audio/truyen-co-tich-chang-chom.html?id=1000560'
+        }
+        onClick();
     </script>
 </body>
 </html>
