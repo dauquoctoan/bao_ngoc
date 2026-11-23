@@ -6,14 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+    <input id="tammiLink" type="text" value="tammi://openinapp?feature=miniapp&miniappid=178936053780049772115812642294&extraData=bs_1C9szwiQw2dLUIWucRN02rhwh7tobjv549dBN6D5odc">
     <div onclick="onClick()">
         test
     </div>
     <script>
         function onClick(){
-            window.location.href = 'tammi://openinapp?feature=miniapp&miniappid=178392959375604003358872286883&extraData=/sach-noi/sao-huyet-cuoi-cung.html?id=1005610'
+            const link = document.getElementById("tammiLink").value.trim();
+            if (link) {
+                window.location.href = link;
+            }
         }
-        onClick();
     </script>
 </body>
 </html>
